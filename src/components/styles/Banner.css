@@ -1,0 +1,13 @@
+.main-title{
+    background-image: url("../../assets/images/arcade-banner.jpg");
+    display: flex;
+    margin: auto;
+    color: red;
+
+}
+
+
+
+.baa-logo{
+    max-width: 100px;
+}
