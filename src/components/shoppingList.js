@@ -29,7 +29,7 @@ let ShoppingList = () => {
 
             {ListHardwares.map((borne) => (
                 <li className={borne.solded && "baa-sales"} key={borne.id}>{borne.name} 
-                    {borne.isBestSale && <span>-&gt;  Yeah !!</span>} 
+                    {borne.isBestSale && <span>-&gt;  🖐️</span>} 
                     {borne.solded && <span>Soldé en plus</span>}
                      power : <CareScale careType="power" scaleValue={borne.power}/>
                      intensité : <CareScale careType="intensity" scaleValue={borne.intensity}/>
