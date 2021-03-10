@@ -1,7 +1,7 @@
 img{
     max-width: 100px;
 }
-.panier{
+.articles{
     display: flex;
     background-image: url("../../assets/images/background-body-image.jpg");
     color: white;

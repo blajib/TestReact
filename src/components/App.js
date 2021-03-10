@@ -3,6 +3,7 @@ import '../App.css';
 import Banner from './Banner'
 import Cart from './Cart'
 import ShoppingList from './shoppingList';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Banner/>
       <Cart/>
       <ShoppingList/>
+      <Footer/>
       </>
   );
 }

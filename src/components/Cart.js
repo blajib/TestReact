@@ -1,8 +1,7 @@
 import newAstroCityImage from "../assets/images/sega-new-astro-city.jpg"
 import astroCityImage from "../assets/images/astroCity.jpg"
 import ddrImage from "../assets/images/ddr.jpg"
-
-
+import {useState} from 'react'
 import "./styles/Cart.css"
 
 var astroCity ="Astro City"    
@@ -12,40 +11,56 @@ var priceAC = 999;
 var priceNAC = 1500;
 var priceDDR = 1600;
 
+
 let TotalPrice = () =>{
     return <div> {priceAC+priceNAC+priceDDR} </div>
 }
 
 
 let Cart = () =>{
-    return <>
-                {/* <div className="panier">
-                <ul>
-                    <li>{astroCity + " :"+priceAC}</li><img src={newAstroCityImage}></img>
-                    <li>{newAstroCity + " :"+priceNAC}</li><img src={astroCityImage}></img>
-                    <li>{dDR + " :"+priceDDR}</li><img src={ddrImage}></img>
-                    
-                </ul>
-                
-            </div>  */}
-            <div className="panier">
-                <div className="item">
-                    <img src={newAstroCityImage}></img>
-                    <h3>{newAstroCity}</h3>
-                    <p>Prix : {priceNAC} $</p>
-                </div >
-                <div className="item">
-                <img src={astroCityImage}></img>
-                    <h3>{astroCity}</h3>
-                    <p>Prix : {priceAC} $</p>
-                </div>
-                <div className="item">
-                <img src={ddrImage}></img>
-                    <h3>{dDR}</h3>
-                    <p>Prix : {priceDDR} $</p>
+    const [cart,updateCart] = useState(0)
+    const [isOpen, setIsOpen] = useState(false)
+
+    return <div className="marche">
+                {isOpen ?(
+                    <>
+                        <div className="panier">
+                            <h3>Total : {priceAC * cart}€</h3>
+                        </div>
+                        <button onClick={() => viderPanier()}>Vider panier</button>
+                    </>    
+                ) : (<button onClick={() => setIsOpen(true)}>Ouvrir le Panier</button>)}
+                <div className="articles">
+                    <div className="item">
+                        <img src={astroCityImage}></img>
+                        <h2>astroCity</h2>
+                        <h2>Price : {priceAC}</h2>
+                        <button onClick={() => ajouter()}>Ajouter</button>
+                    </div>
+                    <div className="item">
+                        <img src={newAstroCityImage}></img>
+                        <h2>newAstroCity</h2>
+                        <h2>Price : {newAstroCity}</h2>
+                        <button onClick={() => ajouter()}>Ajouter</button>
+                    </div>
+                    <div className="item">
+                        <img src={ddrImage}></img>
+                        <h2>DDR</h2>
+                        <h2>Price : {priceDDR}</h2>
+                        <button onClick={() => ajouter()}>Ajouter</button>
+                    </div>
                 </div>
             </div>
 
-            </>
+                function viderPanier() {
+                    setIsOpen(false)
+                    updateCart(cart === 0)
+                    
+                }
+                function ajouter(){
+                    updateCart(cart + 1)
+                    setIsOpen(true)
+                }
+            
 }
 export default Cart 
